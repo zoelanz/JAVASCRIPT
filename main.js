@@ -6,7 +6,6 @@
 3. en caso elija opcion 2 puede ver las caracteristicas de estas
 4. en caso elija opcion 3 puede buscar obras de acuerdo a su presupuesto
 5. en caso elija opcion 4 sale del menu principal
-
 */
 
 // informo al usuario sobre las obras
@@ -101,11 +100,18 @@ tamaño: ${obraBuscada.tamaño} `);
     
 function filtro() {
 
-    const presupuesto = Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
+   
+    let presupuesto=Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
+
+    while(presupuesto<5000)
+    {
+        presupuesto=Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
+    }
 
     const coincidencias = obras.filter(obra => obra.precio <= presupuesto);
 
     coincidencias.forEach((pintura) => alert(pintura.nombre));
 
+   
 }
 
