@@ -9,7 +9,7 @@
 */
 
 // informo al usuario sobre las obras
-alert("Usted esta por comprar obras de la artista Merdeces Llanos!");
+alert("Bienvenidos a la pagina de la artista Merdeces Llanos!");
 
 // declaro variable para iniciar el loop
 let opciones = 0;
@@ -100,7 +100,6 @@ tamaño: ${obraBuscada.tamaño} `);
     
 function filtro() {
 
-   
     let presupuesto=Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
 
     while(presupuesto<5000)
