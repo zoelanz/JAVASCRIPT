@@ -1,20 +1,13 @@
-// -------------------------1° pre- entrega----------------------------------//
 
-/* 
-1.menu de opciones para el usuario
-2.en caso elija opcion 1 puede ver las obras disponibles
-3. en caso elija opcion 2 puede ver las caracteristicas de estas
-4. en caso elija opcion 3 puede buscar obras de acuerdo a su presupuesto
-5. en caso elija opcion 4 sale del menu principal
-*/
 
-// informo al usuario sobre las obras
-alert("Bienvenidos a la pagina de la artista Merdeces Llanos!");
+// -------------------------DESAFIO DOM----------------------------------//
 
-// declaro variable para iniciar el loop
-let opciones = 0;
 
-// creo objetos dentro de un array
+//  informo al usuario sobre las obras
+  alert("Bienvenidos a la pagina de la artista Merdeces Llanos!");
+
+
+//  creo objetos dentro de un array
 const obras = [{
         nombre: "A RUGRATS DREAM",
         tecnica: "Oil on Canvas",
@@ -47,70 +40,79 @@ const obras = [{
     }
 ];
 
-// ciclo con los diferentes opciones
-while (opciones !== 4) {
 
-opciones = Number(prompt(`que desea hacer? seleccione una opcion: 
-1.VER OBRAS DISPONIBLES
-2.CARACTERISTICAS DE UNA OBRA
-3.BUSQUEDA POR PRECIO
-4. SALIR`));
+let coincidencias;
 
-    switch (opciones) {
-        case 1: {
-            obrasDisponibles()
-            break;
-        }
-        case 2: {
-            caracteristicas()
-            break;
-        }
-        case 3: {
-            filtro()
-            break;
-        }
-        case 4:{
-            alert("GRACIAS POR VISITAR MI PAGINA!")
-            break;
-        }
-        default: {
-            alert("ERROR")
-            break;
-        }
-    }
-}
-
-// creo las funciones para cada case (aca el forEach, el find y el filter)
-
-function obrasDisponibles() {
-    obras.forEach((pintura) => alert(pintura.nombre));
-}
-
-function caracteristicas() 
-{
-    let nombresPintura = prompt("INGRESE EL NOMBRE DE LA PINTURA QUE LE INTERESA: A Rugrats Dream, The shaman, Charla de Seis, Queen of the Moon, The Bathtub").toUpperCase();
-
-    const obraBuscada = obras.find(pintura => nombresPintura === pintura.nombre);
-
-        alert(`nombre: ${obraBuscada.nombre}
-tecnica: ${obraBuscada.tecnica}
-precio: ${obraBuscada.precio}
-tamaño: ${obraBuscada.tamaño} `);
-}
-    
 function filtro() {
 
-    let presupuesto=Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
+    let presupuesto = Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
 
-    while(presupuesto<5000)
-    {
-        presupuesto=Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
+    while (presupuesto < 5000) {
+        presupuesto = Number(prompt("ingrese su presupuesto (solo numero: minimo 5000)"));
     }
 
-    const coincidencias = obras.filter(obra => obra.precio <= presupuesto);
-
-    coincidencias.forEach((pintura) => alert(pintura.nombre));
-
-   
+    coincidencias = obras.filter(obra => obra.precio <= presupuesto);
 }
+
+filtro();
+
+//   TRAIGO EL CONTENEDOR
+
+// llamo al main y lo pego al body
+const main = document.getElementById("main");
+// llamo contenedor principal y lo pego al main
+const contenedorGeneral = document.getElementById("containerShop");
+main.appendChild(contenedorGeneral);
+// creo un div con las clases correspondientes y lo pego al otro div
+let div;
+coincidencias.forEach(element => {
+    div = document.createElement("div");
+    div.setAttribute("class", "card");
+    div.setAttribute("style", "width: 18rem")
+    // agregando html(div,h5,p,a) al div
+    div.innerHTML = `
+<img class="card-img-top" src="../imagenes/therugratsdream.jpg" alt="Card image cap">
+<div class="card-body">
+    <h5 class="card-title">${element.nombre}</h5>
+    <p class="card-text">${element.tecnica}</p>
+    <p class="card-text">${element.tamaño}</p>
+    <p class="card-text">u$d${element.precio}</p>
+    <a href="#" class="btn ">Añadir al carrito</a>
+</div>`
+    contenedorGeneral.appendChild(div)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
