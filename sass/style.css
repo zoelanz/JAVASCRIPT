@@ -425,6 +425,13 @@ form {
   padding: 20px;
 }
 
+.tamaño {
+  height: 300px;
+  width: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .btn {
   background-color: black;
   color: white;

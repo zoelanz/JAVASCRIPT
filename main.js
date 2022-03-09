@@ -1,9 +1,6 @@
-
-
 // -------------------------DESAFIO DOM----------------------------------//
 
-
-//  informo al usuario sobre las obras
+//  bienvenida al usuario
   alert("Bienvenidos a la pagina de la artista Merdeces Llanos!");
 
 
@@ -13,33 +10,39 @@ const obras = [{
         tecnica: "Oil on Canvas",
         precio: 8000,
         tamaño: "90 x 72in",
+        imagen:"../imagenes/therugratsdream.jpg"
     },
     {
         nombre: "THE SHAMAN",
         tecnica: "Oil and Acrylic on Canvas",
         precio: 7000,
         tamaño: "84 x 72in",
+        imagen:"../imagenes/portada2021.jpg"
     },
     {
         nombre: "CHARLA DE SEIS",
         tecnica: "Oil on Canvas",
         precio: 7500,
         tamaño: "84 x 72in",
+        imagen:"../imagenes/portada2020.jpg"
     },
     {
         nombre: "QUEEN OF THE MOON",
         tecnica: "Oil and Charcoal on Canvas",
         precio: 5000,
         tamaño: "38 x 56in",
+        imagen:"../imagenes/portada2019.jpeg"
     },
     {
         nombre: "THE BATHTUB",
         tecnica: "Oil on Canvas",
         precio: 10000,
         tamaño: " 96 x 116in",
+        imagen:"../imagenes/portada2018.jpg"
     }
 ];
 
+// creacion de funcion: filtra las obras de acuerdo al presupuesto que ingrese el usuario.
 
 let coincidencias;
 
@@ -56,7 +59,7 @@ function filtro() {
 
 filtro();
 
-//   TRAIGO EL CONTENEDOR
+//   DOM
 
 // llamo al main y lo pego al body
 const main = document.getElementById("main");
@@ -71,7 +74,7 @@ coincidencias.forEach(element => {
     div.setAttribute("style", "width: 18rem")
     // agregando html(div,h5,p,a) al div
     div.innerHTML = `
-<img class="card-img-top" src="../imagenes/therugratsdream.jpg" alt="Card image cap">
+<img class="card-img-top tamaño" src="${element.imagen}" alt="Card image cap">
 <div class="card-body">
     <h5 class="card-title">${element.nombre}</h5>
     <p class="card-text">${element.tecnica}</p>

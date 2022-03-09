@@ -60,7 +60,6 @@ body {
     letter-spacing: 1px;
     text-decoration: none;
     text-shadow: 2px 2px 6px #000;
-
 }
 
 
@@ -461,6 +460,12 @@ form {
     display: flex;
     flex-direction: row;
     padding: 20px;
+}
+
+.tamaño{
+    height: 300px;
+    width: 250px;
+    object-fit:cover;
 }
 
 .btn{
