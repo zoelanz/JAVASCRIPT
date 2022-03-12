@@ -82,7 +82,7 @@ coincidencias.forEach((element) => {
 });
 
 
-// AGREGANDO EVENTOS AL BOTON -BUY PAINT- PARA QUE FIGURE SIN STOCK-------------------
+// AGREGANDO EVENTOS -------------------
 
 let guardarBtn = document.querySelectorAll(".btn").forEach(boton => {
     boton.addEventListener("click", () => 
@@ -90,11 +90,18 @@ let guardarBtn = document.querySelectorAll(".btn").forEach(boton => {
         boton.classList.add("btn-danger")
         boton.classList.add("disabled")
         boton.innerHTML= "OUT OF STOCK"
-        alert("THANKS FOR BUYING")  
-        
+        alert("THANKS FOR BUYING") 
+        getTarget(boton); 
     })
-
 });
+
+let containerCard;
+function getTarget (){
+     containerCard = document.querySelectorAll(".card").forEach(card => 
+        {
+        card.addEventListener("click", () => card.classList.add("opacity"))
+    })
+}
 
 
 
