@@ -1,5 +1,3 @@
-
-
 const main = document.querySelector("main");
 // llamo contenedor principal y lo pego al main
 const containerPrincipal = document.querySelector(".containerPrincipal");
@@ -30,9 +28,8 @@ obras.forEach((element) => {
 
 // === APLICANDO EVENTO CARRITO === //
 
-function persistirDatos ()
-{
-    localStorage.setItem("carrito", JSON.stringify (objetosParaCarrito))
+function persistirDatos() {
+    localStorage.setItem("carrito", JSON.stringify(objetosParaCarrito))
 }
 
 
@@ -48,21 +45,32 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
         let nombrePintura = buttonCardContainer.querySelector(".card-title").textContent // busco los datos en base a la card que agarre antes
         let precioPintura = Number(buttonCardContainer.querySelector(".card-price").textContent.replace("EUR", "")) // busco los datos en base a la card que agarre antes
 
-         objetosParaCarrito.push({
-             imagen: imagenPintura,
-             nombre: nombrePintura,
-             precio: precioPintura
-         })
+        //  objetosParaCarrito.push({
+        //      imagen: imagenPintura,
+        //      nombre: nombrePintura,
+        //      precio: precioPintura
+        //  })
 
-         persistirDatos();
+        //  persistirDatos();
 
+        let contenidoCarrito = capturarCarritoStorage();
+        if (validarObraEnCarrito(nombrePintura) === true) {
+
+            // alert("existe") aca va un sweet alert
+
+
+        } else {
+
+            contenidoCarrito.push( {
+                imagen: imagenPintura,
+                nombre: nombrePintura,
+                precio: precioPintura
+            })
+
+            persistirCarritoStorage(contenidoCarrito)
+
+        }
     })
 
 })
-
-// === LOCAL STORAGE CARRITO === //
-
-
-
-
 

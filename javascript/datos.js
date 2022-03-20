@@ -60,3 +60,51 @@ let obras = [{
 ];
 
 let objetosParaCarrito = []; // carrito vacio donde se pushea la card cuando se hace click en boton add to cart
+
+
+// === FUNCIONES === //
+
+ // Me trae los datosde las obras almacenados en el LocalStorage y lo retorna como una lista
+// function capturarObrasStorage() {
+//     let obrasStorage = JSON.parse(localStorage.getItem("OBRAS"))
+
+   //Si no hay datos en el storage, que me retorne un array vacio
+//     if (secuencia == null) {
+//         return []
+//     }
+
+//     return obrasStorage
+// }
+
+// Me trae los datos del carrito almacenados en el LocalStorage y lo retorna como una lista
+
+function capturarCarritoStorage() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+
+    //Si no hay datos en el storage, que me retorne un array vacio
+    if (carrito == null) {
+        return []
+    }
+    return carrito
+}
+
+// Recibe la nueva lista de obras y la almacena en el LocalStorage
+// function persistirObrasStorage(listaObras) {
+//     localStorage.setItem("OBRAS", JSON.stringify(listaObras))
+// }
+
+// Recibe la nueva lista carrito y la almacena en el LocalStorage
+function persistirCarritoStorage(listaCarrito) {
+    localStorage.setItem("carrito", JSON.stringify(listaCarrito))
+}
+
+// Recibe el nombre de una obra y me devuelve un valor boolean si lo encuentra o no en la lista carrito
+function validarObraEnCarrito(nombreObra) {
+    listaCarrito = capturarCarritoStorage()
+    for (const ob of listaCarrito) {
+        if (ob.nombre === nombreObra) {
+            return true
+        }
+    }
+    return false
+}
