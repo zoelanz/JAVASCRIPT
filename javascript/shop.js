@@ -45,31 +45,33 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
         let nombrePintura = buttonCardContainer.querySelector(".card-title").textContent // busco los datos en base a la card que agarre antes
         let precioPintura = Number(buttonCardContainer.querySelector(".card-price").textContent.replace("EUR", "")) // busco los datos en base a la card que agarre antes
 
-        //  objetosParaCarrito.push({
-        //      imagen: imagenPintura,
-        //      nombre: nombrePintura,
-        //      precio: precioPintura
-        //  })
-
-        //  persistirDatos();
 
         let contenidoCarrito = capturarCarritoStorage();
-        if (validarObraEnCarrito(nombrePintura) === true) {
 
-            // alert("existe") aca va un sweet alert
+        validarObraEnCarrito(nombrePintura) === true ?  Swal.fire({
+             text: 'You have just added this painting!',
+           })
+          : contenidoCarrito.push( {
+            imagen: imagenPintura,
+            nombre: nombrePintura,
+            precio: precioPintura
+        }) && persistirCarritoStorage(contenidoCarrito) /* operador ternario reemplaza lo de abajo */
 
+        // if (validarObraEnCarrito(nombrePintura) === true) {
 
-        } else {
+        //     alert("ya esta agregada al carrito") 
 
-            contenidoCarrito.push( {
-                imagen: imagenPintura,
-                nombre: nombrePintura,
-                precio: precioPintura
-            })
+        // } else {
 
-            persistirCarritoStorage(contenidoCarrito)
+        //     contenidoCarrito.push( {
+        //         imagen: imagenPintura,
+        //         nombre: nombrePintura,
+        //         precio: precioPintura
+        //     })
 
-        }
+        //     persistirCarritoStorage(contenidoCarrito)
+
+        // }
     })
 
 })

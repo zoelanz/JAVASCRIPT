@@ -4,19 +4,14 @@ let pestañaCart = [];
 
 
 // === LOCAL STORAGE === //
-
 function precargaDatos() {
     if (localStorage.getItem("carrito") !== null) {
         pestañaCart = JSON.parse(localStorage.getItem("carrito"));
     }
 }
-
 precargaDatos()
 
-
-
 // === TABLA PARTE ESTATICA === //
-
 const main = document.querySelector("main");
 let tablaCarrito = document.createElement("table");
 tablaCarrito.setAttribute("class", "table");
@@ -34,7 +29,6 @@ tablaCarrito.innerHTML = `
 main.appendChild(tablaCarrito);
 
 // === TABLA DINAMICA CUANDO SE VAN AGREGANDO LAS OBRAS === //
-
 let tbody = document.createElement("tbody");
 tablaCarrito.appendChild(tbody);
 pestañaCart.forEach((element) => {
@@ -71,7 +65,6 @@ divTotalCarrito.innerHTML = `
 main.appendChild(divTotalCarrito)
 
 
-
 // === BORRAR UN ELEMENTO DEL CARRITO === // se esta eliminando pero solo si actualizo
 
 let botonEliminar = document.querySelectorAll(".botonEliminar"); // traigo los botones "botoneliminar"
@@ -84,26 +77,29 @@ botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta 
         let buttonTrContainer = botonEliminar.closest(".contenedorTr");
         let nombrePintura2 = buttonTrContainer.querySelector(".titulo").textContent
 
-       let traerCarritoParaEliminar= capturarCarritoStorage();
-       let arrayNuevoCarrito=[];
-       for(const item of traerCarritoParaEliminar){
-           if(item.nombre===nombrePintura2){
-               continue
-           }
-           arrayNuevoCarrito.push(item)
-       }
-       persistirCarritoStorage(arrayNuevoCarrito);
-      
+        let traerCarritoParaEliminar = capturarCarritoStorage();
+        let arrayNuevoCarrito = [];
+        for (const item of traerCarritoParaEliminar) {
+
+            item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
+
+            // if (item.nombre === nombrePintura2) {
+            //    continue
+            // }
+            // arrayNuevoCarrito.push(item)
+        }
+        persistirCarritoStorage(arrayNuevoCarrito);
 
     })
 })
+
 
 // === VACIAR CARRITO === // se esta vaciando pero solo si actualizo
 
 
 let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
 
-botonVaciar.addEventListener("click",()=>{
-    
+botonVaciar.addEventListener("click", () => {
+
     persistirCarritoStorage([]);
 })
