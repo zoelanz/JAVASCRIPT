@@ -45,17 +45,20 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
         let nombrePintura = buttonCardContainer.querySelector(".card-title").textContent // busco los datos en base a la card que agarre antes
         let precioPintura = Number(buttonCardContainer.querySelector(".card-price").textContent.replace("EUR", "")) // busco los datos en base a la card que agarre antes
 
-
         let contenidoCarrito = capturarCarritoStorage();
 
-        validarObraEnCarrito(nombrePintura) === true ?  Swal.fire({
-             text: 'You have just added this painting!',
-           })
-          : contenidoCarrito.push( {
-            imagen: imagenPintura,
-            nombre: nombrePintura,
-            precio: precioPintura
-        }) && persistirCarritoStorage(contenidoCarrito) /* operador ternario reemplaza lo de abajo */
+        validarObraEnCarrito(nombrePintura) === true ? Swal.fire({
+                text: 'You have already added this painting',
+                imageUrl: `${imagenPintura}`,
+                imageWidth: 250,
+                imageHeight: 300,
+                imageAlt: 'Custom image',
+            }) :
+            contenidoCarrito.push({
+                imagen: imagenPintura,
+                nombre: nombrePintura,
+                precio: precioPintura
+            }) && persistirCarritoStorage(contenidoCarrito) /* operador ternario reemplaza lo de abajo */
 
         // if (validarObraEnCarrito(nombrePintura) === true) {
 
@@ -75,4 +78,3 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
     })
 
 })
-

@@ -1,4 +1,4 @@
-// === ARRAY DE OBJETOS (TODAS LAS PINTURAS) === //
+// === ARRAY DE OBJETOS (PINTURAS EN VENTA) === //
 
 let obras = [{
     nombre: "CHARLA DE SEIS",
@@ -59,7 +59,80 @@ let obras = [{
 },
 ];
 
+// === ARRAY DE OBJETOS (TODAS LAS PINTURAS) === //
+
+let paintings = [{
+    nombre: "A RUGRATS DREAM",
+    tecnica: "Oil on Canvas",
+    tamaño: "90x 72in",
+    año: 2021,
+    imagen: "../imagenes/2021/arugratsdream.jpg", 
+},
+{
+    nombre: "CHARLA DE SEIS",
+    tecnica: "Oil on Canvas",
+    tamaño: "72x 46in",
+    año: 2021,
+    imagen: "../imagenes/2021/charladeseis.jpg",
+},
+{
+    nombre: "CPR",
+    tecnica: "oil and mixed media on canvas",
+    tamaño: "72x 90in",
+    año: 2021,
+    imagen: "../imagenes/2021/cpr.jpg", 
+},
+{
+    nombre: "DESIRE AGAINST MORALITY",
+    tecnica: "oil and mixed media on canvas",
+    tamaño: "72x 80in",
+    año: 2021,
+    imagen: "../imagenes/2021/desireagainstmorality.jpg",  
+},
+{
+    nombre: "QUEEN OF THE MOON",
+    tecnica: " Oil and Charcoal on Canvas",
+    tamaño: "38x 56in",
+    año: 2021,
+    imagen: "../imagenes/2021/queenofthemoon.jpg",  
+},
+{
+    nombre: "THE BATHTUB",
+    tecnica: "Oil on Canvas",
+    tamaño: "96x 116in",
+    año: 2021,
+    imagen: "../imagenes/2021/thebathtub.jpg",   
+},
+{
+    nombre: "THE GREEN BED",
+    tecnica: "Oil on Canvas",
+    tamaño: "72x 60in",
+    año: 2021,
+    imagen: "../imagenes/2021/thegreenbed.jpg",   
+},
+{
+    nombre: "THE KING BABY POSSESSOR",
+    tecnica: "oil and mixed media on canvas",
+    tamaño: "72x 168in",
+    año: 2021,
+    imagen: "../imagenes/2021/thekingbabypossessor.jpg",   
+},
+{
+    nombre: "THE SHAMAN",
+    tecnica: "Oil and Acrylic on Canvas",
+    tamaño: "84x 72in",
+    año: 2021,
+    imagen: "../imagenes/2021/theshaman.jpg",   
+},
+];
+
+
+
+
+
+
 let objetosParaCarrito = []; // carrito vacio donde se pushea la card cuando se hace click en boton add to cart
+
 
 
 // === FUNCIONES === //
