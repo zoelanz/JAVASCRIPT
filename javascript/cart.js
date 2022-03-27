@@ -2,6 +2,15 @@
 
 let pestañaCart = [];
 
+function divEmptyCart() {
+    if (pestañaCart.length == 0) {
+        let emptyCart = document.querySelector(".cart");
+        emptyCart.classList.remove("hide")
+        console.log(emptyCart)
+    }
+}
+
+
 
 // === LOCAL STORAGE === //
 function precargaDatos() {
@@ -44,22 +53,41 @@ pestañaCart.forEach((element) => {
     `;
     tbody.appendChild(tr);
 })
+divEmptyCart();
 
 
 
+// === CREANDO ETIQUETA TOTAL Y BOTON SHOP === //   
 
-// === CREANDO TOTAL Y BOTON SHOP === //     
-let divTotalCarrito = document.createElement("div")
+let divTotalCarrito = document.createElement("div");
+divTotalCarrito.textContent = ""
 divTotalCarrito.classList.add('row', 'mx-4');
 divTotalCarrito.innerHTML = `
 <div class="col">
-<h3 >Total: € <span class="itemCartTotal" >${sumarTotal()}</span> </h3>
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
 </div>
 <div class="col d-flex justify-content-end">
-    <button class="btn boton">BUY!</button>
+<button class="btn boton">BUY!</button>
 </div>
 `;
 main.appendChild(divTotalCarrito)
+
+
+function totalBuy() {
+    divTotalCarrito=document.querySelector(".row")
+    divTotalCarrito.textContent = ""
+    divTotalCarrito.classList.add('row', 'mx-4');
+    divTotalCarrito.innerHTML = `
+<div class="col">
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
+</div>
+<div class="col d-flex justify-content-end">
+<button class="btn boton">BUY!</button>
+</div>
+`;
+    main.appendChild(divTotalCarrito)
+}
+
 
 
 
@@ -78,16 +106,15 @@ botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta 
         let traerCarritoParaEliminar = capturarCarritoStorage();
         buttonTrContainer.textContent = ""
         for (const item of traerCarritoParaEliminar) {
-            item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
+            // item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
 
-            // if (item.nombre === nombrePintura2) {
-            //    continue
-            // }
-            // arrayNuevoCarrito.push(item)
+            if (item.nombre === nombrePintura2) {
+                continue
+            }
+            arrayNuevoCarrito.push(item)
         }
         persistirCarritoStorage(arrayNuevoCarrito);
-        sumarTotal()
-
+        totalBuy();
     })
 })
 
@@ -96,32 +123,21 @@ botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta 
 
 let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
 botonVaciar.addEventListener("click", () => {
-    tbody.textContent = ""
+    tbody.textContent = "";
     persistirCarritoStorage([]);
-    sumarTotal()
-    mostrarTotal()
+    sumarTotal();
+    location.reload();
 })
 
 // === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
 
 function sumarTotal() {
-
-    let sumaTotal= pestañaCart.reduce((acc, el) => acc + el.precio, 0);
-    console.log(pestañaCart);
-    return sumaTotal;
+    // let sumaTotal = pestañaCart.reduce((acc, el) => acc + el.precio, 0);
+    // return sumaTotal;
+    let traerCarritoParaSuma = capturarCarritoStorage();
+    let totalSuma = 0;
+    for (item of traerCarritoParaSuma) {
+        totalSuma += item.precio
+    }
+    return totalSuma;
 }
-
-// function mostrarTotal(){
-
-    
-//     let mostrarTotal= document.querySelector(".itemCartTotal");
-//     mostrarTotal.textContent= "";
-//     mostrarTotal.textContent= sumarTotal();
-//     console.log(mostrarTotal.textContent);
-//     return mostrarTotal;
-    
-
-
-// }
-// mostrarTotal();
-

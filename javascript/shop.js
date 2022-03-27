@@ -39,6 +39,7 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
     boton.addEventListener("click", (e) => {
 
+     
         botonesCarrito = e.target // le pregunto donde se hizo el evento
         let buttonCardContainer = botonesCarrito.closest(".card"); //buscame la card mas cerca de donde se hizo el evento
         let imagenPintura = buttonCardContainer.querySelector(".card-img-top").src // busco los datos en base a la card que agarre antes
@@ -47,12 +48,16 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
         let contenidoCarrito = capturarCarritoStorage();
 
+        Swal.fire({
+            text: 'PAINTING SUCCESFULLY ADDED TO CART',
+            imageUrl: `${imagenPintura}`,
+            imageWidth: 250,
+            imageHeight: 300,
+            imageAlt: 'Custom image',
+        }) 
+
         validarObraEnCarrito(nombrePintura) === true ? Swal.fire({
                 text: 'You have already added this painting',
-                imageUrl: `${imagenPintura}`,
-                imageWidth: 250,
-                imageHeight: 300,
-                imageAlt: 'Custom image',
             }) :
             contenidoCarrito.push({
                 imagen: imagenPintura,

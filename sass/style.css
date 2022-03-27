@@ -152,6 +152,7 @@ li a:hover {
 }
 
 .submenu {
+  background-color: aqua;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.562);
   width: 150%;
@@ -589,7 +590,20 @@ form {
 }
 
 .hide {
-  height: 0;
+  display: none;
+}
+
+/* === === === === === === === === === === POR AÑO=== === === === === === === === === === */
+.contenedorPrincipal {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #cfd1d1;
+}
+
+.imagen {
+  margin-bottom: 25px;
+  height: 400px;
 }
 
 /* === === === === === === === === === === FOOTER === === === === === === === === === === */

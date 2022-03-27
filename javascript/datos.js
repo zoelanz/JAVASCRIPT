@@ -124,6 +124,44 @@ let paintings = [{
     año: 2021,
     imagen: "../imagenes/2021/theshaman.jpg",   
 },
+{
+    nombre: "BABY FEVER FEAR",
+    tecnica: "Oil on Canvas",
+    tamaño: "76x 78in",
+    año: 2020,
+    imagen: "../imagenes/2020/babyfeverfear.jpeg",   
+},
+{
+    nombre: "EL SUEÑO DE LA RAZON PRODUCE MONSTRUOS",
+    tecnica: "oil and mixed media on canvas",
+    tamaño: "60x 80in",
+    año: 2020,
+    imagen: "../imagenes/2020/elsueñodelarazon2020.jpg",   
+},
+{
+    nombre: "MEET THE PARENTS",
+    tecnica: "Oil on Canvas",
+    precio: 10000,
+    tamaño: "60 x 40in",
+    año: 2020,
+    imagen: "../imagenes/meettheparents2020.jpg",
+},
+{
+    nombre: "DISTRAÍDA POR DEL DESEO",
+    tecnica: "Oil and Pastel on Canvas",
+    precio: 12000,
+    tamaño: "74 x 50in",
+    año: 2020,
+    imagen: "../imagenes/distraidaporeldeseo2020.jpg",
+},
+{
+    nombre: "THE COMMUTE",
+    tecnica: "Oil on Canvas",
+    precio: 15000,
+    año: 2020,
+    tamaño: "90 X 70in",
+    imagen: "../imagenes/thecommute2020.jpg",
+},
 ];
 
 
