@@ -57,7 +57,7 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
         }) 
 
         validarObraEnCarrito(nombrePintura) === true ? Swal.fire({
-                text: 'You have already added this painting',
+                text: 'You have already added this painting!',
             }) :
             contenidoCarrito.push({
                 imagen: imagenPintura,
