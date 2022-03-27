@@ -47,13 +47,17 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
         let contenidoCarrito = capturarCarritoStorage();
 
+        Swal.fire({
+            text: 'PAINTING SUCCESFULLY ADDED TO CART',
+            imageUrl: `${imagenPintura}`,
+            imageWidth: 250,
+            imageHeight: 300,
+            imageAlt: 'Custom image',
+        }) 
+
         validarObraEnCarrito(nombrePintura) === true ? Swal.fire({
                 text: 'You have already added this painting',
-                imageUrl: `${imagenPintura}`,
-                imageWidth: 250,
-                imageHeight: 300,
-                imageAlt: 'Custom image',
-            }) :
+            })  :
             contenidoCarrito.push({
                 imagen: imagenPintura,
                 nombre: nombrePintura,
