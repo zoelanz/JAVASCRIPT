@@ -28,7 +28,9 @@ tablaCarrito.innerHTML = `
 `;
 main.appendChild(tablaCarrito);
 
+
 // === TABLA DINAMICA CUANDO SE VAN AGREGANDO LAS OBRAS === //
+
 let tbody = document.createElement("tbody");
 tablaCarrito.appendChild(tbody);
 pestañaCart.forEach((element) => {
@@ -43,44 +45,39 @@ pestañaCart.forEach((element) => {
     tbody.appendChild(tr);
 })
 
-// === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
-let traerCarritoParaSuma = capturarCarritoStorage();
-let totalSuma = 0;
-for (item of traerCarritoParaSuma) {
-    totalSuma += item.precio
-}
+
+
 
 // === CREANDO TOTAL Y BOTON SHOP === //     
 let divTotalCarrito = document.createElement("div")
 divTotalCarrito.classList.add('row', 'mx-4');
 divTotalCarrito.innerHTML = `
 <div class="col">
-<h3 class="itemCartTotal">Total: €${totalSuma} </h3>
+<h3 >Total: € <span class="itemCartTotal" >${sumarTotal()}</span> </h3>
 </div>
 <div class="col d-flex justify-content-end">
     <button class="btn boton">BUY!</button>
 </div>
 `;
-
 main.appendChild(divTotalCarrito)
 
 
-// === BORRAR UN ELEMENTO DEL CARRITO === // se esta eliminando pero solo si actualizo
+
+
+// === BORRAR UN ELEMENTO DEL CARRITO === // 
 
 let botonEliminar = document.querySelectorAll(".botonEliminar"); // traigo los botones "botoneliminar"
 
 botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta la funcion
 
     boton.addEventListener("click", (e) => {
-
         botonEliminar = e.target
         let buttonTrContainer = botonEliminar.closest(".contenedorTr");
         let nombrePintura2 = buttonTrContainer.querySelector(".titulo").textContent
-
-        let traerCarritoParaEliminar = capturarCarritoStorage();
         let arrayNuevoCarrito = [];
+        let traerCarritoParaEliminar = capturarCarritoStorage();
+        buttonTrContainer.textContent = ""
         for (const item of traerCarritoParaEliminar) {
-
             item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
 
             // if (item.nombre === nombrePintura2) {
@@ -89,17 +86,42 @@ botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta 
             // arrayNuevoCarrito.push(item)
         }
         persistirCarritoStorage(arrayNuevoCarrito);
+        sumarTotal()
 
     })
 })
 
 
-// === VACIAR CARRITO === // se esta vaciando pero solo si actualizo
-
+// === VACIAR CARRITO === //
 
 let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
-
 botonVaciar.addEventListener("click", () => {
-
+    tbody.textContent = ""
     persistirCarritoStorage([]);
+    sumarTotal()
+    mostrarTotal()
 })
+
+// === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
+
+function sumarTotal() {
+
+    let sumaTotal= pestañaCart.reduce((acc, el) => acc + el.precio, 0);
+    console.log(pestañaCart);
+    return sumaTotal;
+}
+
+// function mostrarTotal(){
+
+    
+//     let mostrarTotal= document.querySelector(".itemCartTotal");
+//     mostrarTotal.textContent= "";
+//     mostrarTotal.textContent= sumarTotal();
+//     console.log(mostrarTotal.textContent);
+//     return mostrarTotal;
+    
+
+
+// }
+// mostrarTotal();
+
