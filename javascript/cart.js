@@ -62,6 +62,7 @@ divEmptyCart();
 
 let divTotalCarrito = document.createElement("div");
 
+// === CREANDO ETIQUETA TOTAL Y BOTON SHOP === //   
 
 divTotalCarrito.textContent = ""
 divTotalCarrito.classList.add('row', 'mx-4', 'totalCarrito');
@@ -85,25 +86,24 @@ botonBuy.innerHTML = `
 main.appendChild(botonBuy);
 
 botonBuy.addEventListener("click", () =>
-   
-Swal.fire({
-    title: 'THANKS FOR BUYING! ',
-    text:"Hope to see you soon!",
-    width: 600,
-    padding: '3em',
-    color: '#fff',
-    confirmButtonColor:"#000",
-    confirmButtonText:"Close",
-    background: '#fff url(../imagenes/2021/charladeseis.jpg)',
-    showClass:
-{
-  popup: 'swal2-show',
-  backdrop: 'swal2-backdrop-show',
-  icon: 'swal2-icon-show'
-}
-    
-   
-  }))
+
+    Swal.fire({
+        title: 'THANKS FOR BUYING! ',
+        text: "Hope to see you soon!",
+        width: 600,
+        padding: '3em',
+        color: '#fff',
+        confirmButtonColor: "#000",
+        confirmButtonText: "Close",
+        background: '#fff url(../imagenes/2021/charladeseis.jpg)',
+        showClass: {
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'swal2-icon-show'
+        }
+
+
+    }))
 
 
 
@@ -122,6 +122,23 @@ function totalBuy() {
 `;
     main.appendChild(divTotalCarrito)
 }
+
+
+function totalBuy() {
+    divTotalCarrito = document.querySelector(".row")
+    divTotalCarrito.textContent = ""
+    divTotalCarrito.classList.add('row', 'mx-4');
+    divTotalCarrito.innerHTML = `
+<div class="col">
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
+</div>
+<div class="col d-flex justify-content-end">
+<button class="btn boton">BUY!</button>
+</div>
+`;
+    main.appendChild(divTotalCarrito)
+}
+
 
 
 

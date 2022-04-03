@@ -40,7 +40,6 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
     boton.addEventListener("click", (e) => {
 
-
         botonesCarrito = e.target // le pregunto donde se hizo el evento
         let buttonCardContainer = botonesCarrito.closest(".card"); //buscame la card mas cerca de donde se hizo el evento
         let imagenPintura = buttonCardContainer.querySelector(".card-img-top").src // busco los datos en base a la card que agarre antes
