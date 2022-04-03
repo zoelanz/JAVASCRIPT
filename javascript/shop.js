@@ -9,7 +9,7 @@ obras.forEach((element) => {
     card.setAttribute("class", "card");
     card.setAttribute("style", "width:18rem;");
     card.innerHTML = `
-<div class="d-flex justify-content-center  ">
+                <div class="d-flex justify-content-center  ">
                     <img src="${element.imagen}" class="card-img-top tamaño" alt="...">
                 </div>
                 <div class="card-body ">
@@ -19,7 +19,8 @@ obras.forEach((element) => {
                     <p class="card-price">EUR ${element.precio}</p>
                     <div class="d-grid gap-2">
                         <button id="agregar${obras.nombre}" class="btn button"> ADD TO CART</button>
-                    </div>`;
+                    </div>
+                </div>`;
     containerPrincipal.appendChild(card)
 
 });
@@ -39,6 +40,7 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
     boton.addEventListener("click", (e) => {
 
+
         botonesCarrito = e.target // le pregunto donde se hizo el evento
         let buttonCardContainer = botonesCarrito.closest(".card"); //buscame la card mas cerca de donde se hizo el evento
         let imagenPintura = buttonCardContainer.querySelector(".card-img-top").src // busco los datos en base a la card que agarre antes
@@ -47,34 +49,58 @@ botonesCarrito.forEach((boton) => { //por cada boton de que cada card se ejecuta
 
         let contenidoCarrito = capturarCarritoStorage();
 
-        validarObraEnCarrito(nombrePintura) === true ? Swal.fire({
-                text: 'You have already added this painting',
-                imageUrl: `${imagenPintura}`,
-                imageWidth: 250,
-                imageHeight: 300,
-                imageAlt: 'Custom image',
-            }) :
+        if (validarObraEnCarrito(nombrePintura) === true) {
+            Toastify({
+
+                text: "YOU HAVE ALREADY ADDED THIS PAINTING",
+                close: true,
+                duration: 2000,
+                gravity: "bottom",
+                className: "styleToastify",
+                style: {
+                    background: "black",
+                }
+
+            }).showToast()
+
+        } else {
             contenidoCarrito.push({
                 imagen: imagenPintura,
                 nombre: nombrePintura,
                 precio: precioPintura
-            }) && persistirCarritoStorage(contenidoCarrito) /* operador ternario reemplaza lo de abajo */
+            })
+            persistirCarritoStorage(contenidoCarrito)
+            Toastify({
 
-        // if (validarObraEnCarrito(nombrePintura) === true) {
+                text: "SUCCESFULLY ADDED TO CART",
+                close: true,
+                duration: 2000,
+                className: "styleToastify",
+                gravity: "bottom",
+                style: {
+                    background: "black",
+                }
 
-        //     alert("ya esta agregada al carrito") 
+            }).showToast()
 
-        // } else {
+        }
 
-        //     contenidoCarrito.push( {
-        //         imagen: imagenPintura,
-        //         nombre: nombrePintura,
-        //         precio: precioPintura
-        //     })
 
-        //     persistirCarritoStorage(contenidoCarrito)
 
-        // }
+
+
+        // Swal.fire({
+        //     text: 'PAINTING SUCCESFULLY ADDED TO CART',
+        //     imageUrl: `${imagenPintura}`,
+        //     imageWidth: 250,
+        //     imageHeight: 300,
+        //     imageAlt: 'Custom image',
+        // }) 
+
+
+
+
+
     })
 
 })

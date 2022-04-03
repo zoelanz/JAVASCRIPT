@@ -2,6 +2,17 @@
 
 let pestañaCart = [];
 
+function divEmptyCart() {
+    if (pestañaCart.length == 0) {
+        let emptyCart = document.querySelector(".cart");
+        emptyCart.classList.remove("hide")
+        let tablaCarrito = document.querySelector(".table");
+        tablaCarrito.classList.add("hide");
+        let divTotalCarrito = document.querySelector(".totalCarrito");
+        divTotalCarrito.classList.add("hide");
+        console.log(emptyCart)
+    }
+}
 
 // === LOCAL STORAGE === //
 function precargaDatos() {
@@ -12,10 +23,10 @@ function precargaDatos() {
 precargaDatos()
 
 // === TABLA PARTE ESTATICA === //
+
 const main = document.querySelector("main");
 let tablaCarrito = document.createElement("table");
 tablaCarrito.setAttribute("class", "table");
-
 tablaCarrito.innerHTML = `
             <thead>
                 <tr>
@@ -44,22 +55,73 @@ pestañaCart.forEach((element) => {
     `;
     tbody.appendChild(tr);
 })
+divEmptyCart();
 
 
+// === CREANDO ETIQUETA TOTAL Y BOTON BUY === //   
+
+let divTotalCarrito = document.createElement("div");
 
 
-// === CREANDO TOTAL Y BOTON SHOP === //     
-let divTotalCarrito = document.createElement("div")
-divTotalCarrito.classList.add('row', 'mx-4');
+divTotalCarrito.textContent = ""
+divTotalCarrito.classList.add('row', 'mx-4', 'totalCarrito');
 divTotalCarrito.innerHTML = `
 <div class="col">
-<h3 >Total: € <span class="itemCartTotal" >${sumarTotal()}</span> </h3>
-</div>
-<div class="col d-flex justify-content-end">
-    <button class="btn boton">BUY!</button>
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
 </div>
 `;
-main.appendChild(divTotalCarrito)
+
+main.appendChild(divTotalCarrito);
+
+
+let botonBuy = document.createElement("div");
+
+botonBuy.innerHTML = `
+<div class="col d-flex justify-content-end buy">
+<button class="btn boton">BUY!</button>
+</div>
+`
+
+main.appendChild(botonBuy);
+
+botonBuy.addEventListener("click", () =>
+   
+Swal.fire({
+    title: 'THANKS FOR BUYING! ',
+    text:"Hope to see you soon!",
+    width: 600,
+    padding: '3em',
+    color: '#fff',
+    confirmButtonColor:"#000",
+    confirmButtonText:"Close",
+    background: '#fff url(../imagenes/2021/charladeseis.jpg)',
+    showClass:
+{
+  popup: 'swal2-show',
+  backdrop: 'swal2-backdrop-show',
+  icon: 'swal2-icon-show'
+}
+    
+   
+  }))
+
+
+
+
+function totalBuy() {
+    divTotalCarrito = document.querySelector(".row")
+    divTotalCarrito.textContent = ""
+    divTotalCarrito.classList.add('row', 'mx-4');
+    divTotalCarrito.innerHTML = `
+<div class="col">
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
+</div>
+<div class="col d-flex justify-content-end">
+<button class="btn boton">BUY!</button>
+</div>
+`;
+    main.appendChild(divTotalCarrito)
+}
 
 
 
@@ -78,50 +140,37 @@ botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta 
         let traerCarritoParaEliminar = capturarCarritoStorage();
         buttonTrContainer.textContent = ""
         for (const item of traerCarritoParaEliminar) {
-            item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
+            // item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
 
-            // if (item.nombre === nombrePintura2) {
-            //    continue
-            // }
-            // arrayNuevoCarrito.push(item)
+            if (item.nombre === nombrePintura2) {
+                continue
+            }
+            arrayNuevoCarrito.push(item)
         }
         persistirCarritoStorage(arrayNuevoCarrito);
-        sumarTotal()
-
+        totalBuy();
+        eliminarObjetoArray(arrayNuevoCarrito);
+        comprobarCarritoVacio(arrayNuevoCarrito);
     })
 })
-
 
 // === VACIAR CARRITO === //
 
 let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
 botonVaciar.addEventListener("click", () => {
-    tbody.textContent = ""
+    tbody.textContent = "";
     persistirCarritoStorage([]);
-    sumarTotal()
-    mostrarTotal()
+    sumarTotal();
+    location.reload();
 })
 
 // === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
 
 function sumarTotal() {
-
-    let sumaTotal= pestañaCart.reduce((acc, el) => acc + el.precio, 0);
-    console.log(pestañaCart);
-    return sumaTotal;
+    let traerCarritoParaSuma = capturarCarritoStorage();
+    let totalSuma = 0;
+    for (item of traerCarritoParaSuma) {
+        totalSuma += item.precio
+    }
+    return totalSuma;
 }
-
-// function mostrarTotal(){
-
-    
-//     let mostrarTotal= document.querySelector(".itemCartTotal");
-//     mostrarTotal.textContent= "";
-//     mostrarTotal.textContent= sumarTotal();
-//     console.log(mostrarTotal.textContent);
-//     return mostrarTotal;
-    
-
-
-// }
-// mostrarTotal();
-
