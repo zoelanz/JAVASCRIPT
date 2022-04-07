@@ -19,5 +19,3 @@ porAño.forEach((portada) => {
 
 
 
-
-// let result = paintings.filter(item => item.año == 2020 ); 

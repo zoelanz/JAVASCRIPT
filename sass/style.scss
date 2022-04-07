@@ -10,9 +10,6 @@
 
 /* === === === === === === === === === === GENERAL === === === === === === === === === === */
 
-
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -23,10 +20,7 @@ body {
     scroll-behavior: smooth;
 }
 
-
-
 /* === === === === === === === === === === HEADER === === === === === === === === === === */
-
 
 .header {
     width: 100%;
@@ -45,7 +39,6 @@ body {
     color: #000;
     font-weight: 900;
 }
-
 
 .menu {
     display: flex;
@@ -114,7 +107,6 @@ li a:hover {
     margin-top: 20px;
 }
 
-
 .contenedorGaleria {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -122,7 +114,6 @@ li a:hover {
     gap: 20px;
     padding: 50px;
     // background-color: rgb(55, 105, 105);
-
 }
 
 .imagenGaleria {
@@ -135,12 +126,7 @@ li a:hover {
 .imagenGaleria:hover {
     transform: scale(1.3);
     // border: 1px solid rgb(134, 120, 120);
-
 }
-
-
-
-
 
 /* === === === === === === === === === === PAINTINGS === === === === === === === === === === */
 
@@ -252,11 +238,9 @@ li a:hover {
     font-size: 20px;
     letter-spacing: 1px;
     font-weight: bold;
-
 }
 
 /* === === === === === === === === === === CONTACT === === === === === === === === === === */
-
 
 .contenedorForm {
     width: 100%;
@@ -293,8 +277,6 @@ form h2 {
     width: 100%;
     padding: 20px;
 }
-
-
 
 .formInput::placeholder {
     color: black;
@@ -358,8 +340,6 @@ form h2 {
 
 .icon {
     transform: scale(1.6);
-
-
 }
 
 .icon:hover {
@@ -370,13 +350,11 @@ form h2 {
 
 /* === === === === === === === === === === SHOP === === === === === === === === === === */
 
-
 .styleToastify {
     font-family: apercu;
     font-size: 14px;
     letter-spacing: 1.5px;
     border-radius: 15px;
-
 }
 
 .containerPrincipal {
@@ -386,7 +364,6 @@ form h2 {
 .card {
     padding: 0;
     margin: 10px;
-
 }
 
 .shopPinturas {
@@ -400,7 +377,6 @@ form h2 {
     font-size: 14px;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
-
 }
 
 .card-text {
@@ -414,7 +390,6 @@ form h2 {
     width: 100%;
     object-fit: cover;
     margin: 0;
-
 }
 
 .btn {
@@ -422,7 +397,6 @@ form h2 {
     color: white;
     font-size: 14px;
     font-family: 'Josefin Sans', sans-serif;
-
 }
 
 .btn:hover {
@@ -436,14 +410,11 @@ form h2 {
         .contenedor {
             opacity: 0.8;
             transition: all ease 0.25s;
-
         }
     }
-
 }
 
 /* === === === === === === === === === === CART === === === === === === === === === === */
-
 
 .boton {
     font-size: 13px;
@@ -487,20 +458,15 @@ form h2 {
     box-shadow: 2px 2px 10px rgb(10, 10, 10);
 }
 
-
-
-
 /* === === === === === === === === === === POR AÑO=== === === === === === === === === === */
 .contenedorPrincipal {
     width: 100%;
-    // background-color: rgb(146, 94, 126);
 }
 
 .contenedorImagen {
     display: grid;
     place-items: center;
     padding: 1rem;
-    // background-color: #d1c0c0;
 }
 
 .tamañoImgPorAño {
@@ -541,7 +507,6 @@ footer {
     border-radius: 30px;
     font-size: 10px;
 }
-
 
 .arrow {
     display: flex;
