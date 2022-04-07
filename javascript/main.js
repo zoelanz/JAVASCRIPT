@@ -17,7 +17,6 @@ nuevoenlace.forEach((enlaceClickeado)=>{
 })
 
 
-
 //Get the button:
 mybutton = document.querySelector(".inicioPagina");
 
@@ -31,6 +30,8 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
+
+mybutton.addEventListener("click",topFunction)
 
 
 // When the user clicks on the button, scroll to the top of the document
