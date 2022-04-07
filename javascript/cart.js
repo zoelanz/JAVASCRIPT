@@ -62,7 +62,7 @@ divEmptyCart();
 
 let divTotalCarrito = document.createElement("div");
 
-// === CREANDO ETIQUETA TOTAL Y BOTON SHOP === //   
+// === CREANDO ETIQUETA TOTAL Y BOTON BUY === //   
 
 divTotalCarrito.textContent = ""
 divTotalCarrito.classList.add('row', 'mx-4', 'totalCarrito');
@@ -85,109 +85,93 @@ botonBuy.innerHTML = `
 
 main.appendChild(botonBuy);
 
-botonBuy.addEventListener("click", () =>
+botonBuy.addEventListener("click", () => {
+            Swal.fire({
+                title: 'THANKS FOR BUYING! Hope to see you soon! ',
+                width: 500,
+                padding: '3em',
+                color: '#000',
+                showConfirmButton: false,
+                background: '#fff url(../imagenes/2021/arugratsdream.jpg)',
+                showClass: {
+                    popup: 'swal2-show',
+                    backdrop: 'swal2-backdrop-show',
+                    icon: 'swal2-icon-show'
+                }
+            })
+            setTimeout(() => {
+                vaciarCarrito()
+            }, 300000);
+        
+        })
 
-    Swal.fire({
-        title: 'THANKS FOR BUYING! ',
-        text: "Hope to see you soon!",
-        width: 600,
-        padding: '3em',
-        color: '#fff',
-        confirmButtonColor: "#000",
-        confirmButtonText: "Close",
-        background: '#fff url(../imagenes/2021/charladeseis.jpg)',
-        showClass: {
-            popup: 'swal2-show',
-            backdrop: 'swal2-backdrop-show',
-            icon: 'swal2-icon-show'
+
+
+
+
+        function totalBuy() {
+            divTotalCarrito = document.querySelector(".row")
+            divTotalCarrito.textContent = ""
+            divTotalCarrito.classList.add('row', 'mx-4');
+            divTotalCarrito.innerHTML = `
+<div class="col">
+<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
+</div>
+`;
+            main.appendChild(divTotalCarrito)
         }
 
 
-    }))
 
 
 
+        // === BORRAR UN ELEMENTO DEL CARRITO === // 
 
-function totalBuy() {
-    divTotalCarrito = document.querySelector(".row")
-    divTotalCarrito.textContent = ""
-    divTotalCarrito.classList.add('row', 'mx-4');
-    divTotalCarrito.innerHTML = `
-<div class="col">
-<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
-</div>
-<div class="col d-flex justify-content-end">
-<button class="btn boton">BUY!</button>
-</div>
-`;
-    main.appendChild(divTotalCarrito)
-}
+        let botonEliminar = document.querySelectorAll(".botonEliminar"); // traigo los botones "botoneliminar"
 
+        botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta la funcion
 
-function totalBuy() {
-    divTotalCarrito = document.querySelector(".row")
-    divTotalCarrito.textContent = ""
-    divTotalCarrito.classList.add('row', 'mx-4');
-    divTotalCarrito.innerHTML = `
-<div class="col">
-<h3>Total: € <span class="itemCartTotal" >${sumarTotal()}</span></h3>
-</div>
-<div class="col d-flex justify-content-end">
-<button class="btn boton">BUY!</button>
-</div>
-`;
-    main.appendChild(divTotalCarrito)
-}
+            boton.addEventListener("click", (e) => {
+                botonEliminar = e.target
+                let buttonTrContainer = botonEliminar.closest(".contenedorTr");
+                let nombrePintura2 = buttonTrContainer.querySelector(".titulo").textContent
+                let arrayNuevoCarrito = [];
+                let traerCarritoParaEliminar = capturarCarritoStorage();
+                buttonTrContainer.textContent = ""
+                for (const item of traerCarritoParaEliminar) {
+                    // item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
 
+                    if (item.nombre === nombrePintura2) {
+                        continue
+                    }
+                    arrayNuevoCarrito.push(item)
+                }
+                persistirCarritoStorage(arrayNuevoCarrito);
+                totalBuy();
+                eliminarObjetoArray(arrayNuevoCarrito);
+                comprobarCarritoVacio(arrayNuevoCarrito);
+            })
+        })
 
+        // === VACIAR CARRITO === //
 
+        function vaciarCarrito() {
+            tbody.textContent = "";
+            persistirCarritoStorage([]);
+            sumarTotal();
+            location.reload();
+        }
 
+        let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
+        botonVaciar.addEventListener("click", vaciarCarrito);
 
-// === BORRAR UN ELEMENTO DEL CARRITO === // 
+        // === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
 
-let botonEliminar = document.querySelectorAll(".botonEliminar"); // traigo los botones "botoneliminar"
-
-botonEliminar.forEach((boton) => { //por cada boton de que cada card se ejecuta la funcion
-
-    boton.addEventListener("click", (e) => {
-        botonEliminar = e.target
-        let buttonTrContainer = botonEliminar.closest(".contenedorTr");
-        let nombrePintura2 = buttonTrContainer.querySelector(".titulo").textContent
-        let arrayNuevoCarrito = [];
-        let traerCarritoParaEliminar = capturarCarritoStorage();
-        buttonTrContainer.textContent = ""
-        for (const item of traerCarritoParaEliminar) {
-            // item.nombre != nombrePintura2 && arrayNuevoCarrito.push(item) /* operador AND reemplaza lo de abajo */
-
-            if (item.nombre === nombrePintura2) {
-                continue
+        function sumarTotal() {
+            let traerCarritoParaSuma = capturarCarritoStorage();
+            let totalSuma = 0;
+            for (item of traerCarritoParaSuma) {
+                totalSuma += item.precio
             }
-            arrayNuevoCarrito.push(item)
+            return totalSuma;
         }
-        persistirCarritoStorage(arrayNuevoCarrito);
-        totalBuy();
-        eliminarObjetoArray(arrayNuevoCarrito);
-        comprobarCarritoVacio(arrayNuevoCarrito);
-    })
-})
-
-// === VACIAR CARRITO === //
-
-let botonVaciar = document.querySelector(".botonVaciarCarrito"); // traigo boton vaciar carrito"
-botonVaciar.addEventListener("click", () => {
-    tbody.textContent = "";
-    persistirCarritoStorage([]);
-    sumarTotal();
-    location.reload();
-})
-
-// === PARA HACER LA SUMA TOTAL DEL CARRITO === //    
-
-function sumarTotal() {
-    let traerCarritoParaSuma = capturarCarritoStorage();
-    let totalSuma = 0;
-    for (item of traerCarritoParaSuma) {
-        totalSuma += item.precio
-    }
-    return totalSuma;
-}

@@ -17,6 +17,7 @@ nuevoenlace.forEach((enlaceClickeado)=>{
 })
 
 
+
 //Get the button:
 mybutton = document.querySelector(".inicioPagina");
 
