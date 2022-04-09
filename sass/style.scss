@@ -28,6 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .logo h1 {
 
         height: auto;
@@ -37,32 +38,38 @@ body {
         color: #000;
         font-weight: 900;
     }
+
     .menu {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         column-gap: 30px;
+
         li {
             position: relative;
             font-family: apercu;
             font-size: 15px;
             letter-spacing: 1px;
             list-style: none;
-            a{
+
+            a {
                 text-decoration: none;
                 color: #000;
                 font-weight: 600;
-                &:hover{
+
+                &:hover {
                     color: #535151;
                 }
             }
         }
+
         .btnPaintings {
             border: none;
             background-color: transparent;
             font-size: 15px;
             padding: 0;
         }
+
         .submenu {
             position: absolute;
             background-color: rgba(255, 255, 255, 0.562);
@@ -71,11 +78,13 @@ body {
             visibility: none;
             opacity: 0;
             transition: opacity 1.5s;
+
             li a {
                 display: inline-block;
                 padding: 12px;
             }
-            li:hover{
+
+            li:hover {
                 visibility: visible;
                 opacity: 1;
             }
@@ -102,76 +111,60 @@ body {
 
 /* === === === === === === === === === === PAINTINGS === === === === === === === === === === */
 
-.tabPaintings {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 30%;
-    margin: 20px auto 20px auto;
-}
+// .tabPaintings {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+//     align-items: center;
+//     width: 30%;
+//     margin: 20px auto 20px auto;
+// }
 
 .contenedorPaintings {
     height: min-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
 
+    .contenedorPaintings1 {
+        background-image: url(../imagenes/theshaman2021.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        width: 450px;
+    }
 
-.contenedorPaintings1 {
-    background-image: url(../imagenes/theshaman2021.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 450px;
-}
+    .contenedorPaintings2 {
+        background-image: url(../imagenes/elsueñodelarazon2020.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        width: 450px;
+    }
 
-.contenedorPaintings2 {
-    background-image: url(../imagenes/elsueñodelarazon2020.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 450px;
-}
+    .contenedorPaintings3 {
+        background-image: url(../imagenes/arugratsdream2021.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        width: 450px;
+    }
 
-.contenedorPaintings3 {
-    background-image: url(../imagenes/arugratsdream2021.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 450px;
-}
+    .contenedorPaintings4 {
+        background-image: url(../imagenes/thecommute2020.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        width: 450px;
+    }
 
-.contenedorPaintings4 {
-    background-image: url(../imagenes/thecommute2020.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 450px;
-}
-
-.añosPaintings {
-    font-family: apercu;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* === === === === === === === === === === EXHIBITIONS === === === === === === === === === === */
-
-.exhibition h4 {
-    font-family: apercu;
-    font-weight: bold;
-    padding: 20px 0 20px 0;
-}
-
-.exhibition1 {
-    background-image: url(../imagenes/expo1.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 500px;
+    .añosPaintings {
+        font-family: apercu;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 }
 
 /* === === === === === === === === === === ABOUT === === === === === === === === === === */
@@ -181,35 +174,35 @@ body {
     flex-direction: row;
     align-items: center;
     height: 500px;
-}
 
-.contenedorCharo {
-    background-image: url(../imagenes/charo.jfif);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 50%;
-}
+    .contenedorCharo {
+        background-image: url(../imagenes/charo.jfif);
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        width: 50%;
+    }
 
-.contenedorCharoTexto {
-    width: 50%;
-    font-family: apercu;
-    font-weight: bold;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 25px;
-    height: 450px;
-    line-height: 35px;
-    text-align: justify;
-}
+    .contenedorCharoTexto {
+        width: 50%;
+        font-family: apercu;
+        font-weight: bold;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 25px;
+        height: 450px;
+        line-height: 35px;
+        text-align: justify;
 
-.contenedorCharoTexto h3 {
-    padding: 0px 0px 15px 0px;
-    font-size: 20px;
-    letter-spacing: 1px;
-    font-weight: bold;
+        h3 {
+            padding: 0px 0px 15px 0px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+    }
 }
 
 /* === === === === === === === === === === CONTACT === === === === === === === === === === */
@@ -219,63 +212,58 @@ body {
     display: flex;
     justify-content: center;
     padding: 10px;
-}
 
-.contenedorForm h2 {
-    font-family: apercu;
-    font-size: 22px;
-    letter-spacing: 3px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
+    form {
+        width: 52%;
 
-form {
-    width: 52%;
-}
+        h2 {
+            font-family: apercu;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
 
-form h2 {
-    font-weight: bold;
-}
+        .formInput {
+            font-family: apercu;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            width: 100%;
+            padding: 20px;
+        }
 
-.formInput {
-    font-family: apercu;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    width: 100%;
-    padding: 20px;
-}
+        .formInput::placeholder {
+            color: black;
+            font-weight: bold;
+        }
 
-.formInput::placeholder {
-    color: black;
-    font-weight: bold;
-}
-
-.boton {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.inputBoton {
-    padding: 10px 50px 10px 50px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-family: apercu;
-    font-weight: bold;
-    background-color: transparent;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all ease 0.8s;
-}
-
-.inputBoton:hover {
-    background-color: #000;
-    color: #fff;
+        .boton {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            .inputBoton {
+                padding: 10px 50px 10px 50px;
+                border: 1px solid black;
+                border-radius: 5px;
+                font-family: apercu;
+                font-weight: bold;
+                background-color: transparent;
+                letter-spacing: 1px;
+                cursor: pointer;
+                transition: all ease 0.8s;
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
 }
 
 .contenedorContact {
@@ -287,37 +275,32 @@ form h2 {
     line-height: 30px;
     padding: 20px;
     row-gap: 15px;
-}
-
-.contenedorDatos {
-    display: flex;
-    justify-content: center;
-}
-
-.contenedorDatos1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    column-gap: 50px;
-    align-items: center;
-}
-
-.redes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    padding-top: 25px;
-}
-
-.icon {
-    transform: scale(1.6);
-}
-
-.icon:hover {
-    cursor: pointer;
-    transition: all ease 0.5s;
-    transform: scale(2);
+    .contenedorDatos {
+        display: flex;
+        justify-content: center;
+    }
+    .contenedorDatos1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        column-gap: 50px;
+        align-items: center;
+        .redes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            padding-top: 25px;
+            .icon {
+                transform: scale(1.6);
+                &:hover {
+                    cursor: pointer;
+                    transition: all ease 0.5s;
+                    transform: scale(2);
+                }
+            }
+        }
+    } 
 }
 
 /* === === === === === === === === === === SHOP === === === === === === === === === === */
@@ -445,6 +428,7 @@ form h2 {
     height: auto;
     width: 370px;
 }
+
 .contenedorGaleria {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

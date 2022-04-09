@@ -129,23 +129,6 @@ body {
 }
 
 /* === === === === === === === === === === PAINTINGS === === === === === === === === === === */
-.tabPaintings {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 30%;
-  margin: 20px auto 20px auto;
-}
-
 .contenedorPaintings {
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -160,7 +143,7 @@ body {
           align-items: center;
 }
 
-.contenedorPaintings1 {
+.contenedorPaintings .contenedorPaintings1 {
   background-image: url(../imagenes/theshaman2021.jpg);
   background-position: center;
   background-size: cover;
@@ -168,7 +151,7 @@ body {
   width: 450px;
 }
 
-.contenedorPaintings2 {
+.contenedorPaintings .contenedorPaintings2 {
   background-image: url(../imagenes/elsueñodelarazon2020.jpg);
   background-position: center;
   background-size: cover;
@@ -176,7 +159,7 @@ body {
   width: 450px;
 }
 
-.contenedorPaintings3 {
+.contenedorPaintings .contenedorPaintings3 {
   background-image: url(../imagenes/arugratsdream2021.jpg);
   background-position: center;
   background-size: cover;
@@ -184,7 +167,7 @@ body {
   width: 450px;
 }
 
-.contenedorPaintings4 {
+.contenedorPaintings .contenedorPaintings4 {
   background-image: url(../imagenes/thecommute2020.jpg);
   background-position: center;
   background-size: cover;
@@ -192,26 +175,12 @@ body {
   width: 450px;
 }
 
-.añosPaintings {
+.contenedorPaintings .añosPaintings {
   font-family: apercu;
   font-size: 20px;
   text-align: center;
   font-weight: bold;
   margin-top: 10px;
-}
-
-/* === === === === === === === === === === EXHIBITIONS === === === === === === === === === === */
-.exhibition h4 {
-  font-family: apercu;
-  font-weight: bold;
-  padding: 20px 0 20px 0;
-}
-
-.exhibition1 {
-  background-image: url(../imagenes/expo1.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 500px;
 }
 
 /* === === === === === === === === === === ABOUT === === === === === === === === === === */
@@ -229,7 +198,7 @@ body {
   height: 500px;
 }
 
-.contenedorCharo {
+.contenedorAbout .contenedorCharo {
   background-image: url(../imagenes/charo.jfif);
   background-position: center;
   background-size: cover;
@@ -237,7 +206,7 @@ body {
   width: 50%;
 }
 
-.contenedorCharoTexto {
+.contenedorAbout .contenedorCharoTexto {
   width: 50%;
   font-family: apercu;
   font-weight: bold;
@@ -258,7 +227,7 @@ body {
   text-align: justify;
 }
 
-.contenedorCharoTexto h3 {
+.contenedorAbout .contenedorCharoTexto h3 {
   padding: 0px 0px 15px 0px;
   font-size: 20px;
   letter-spacing: 1px;
@@ -277,9 +246,14 @@ body {
   padding: 10px;
 }
 
-.contenedorForm h2 {
+.contenedorForm form {
+  width: 52%;
+}
+
+.contenedorForm form h2 {
   font-family: apercu;
   font-size: 22px;
+  font-weight: bold;
   letter-spacing: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -290,15 +264,7 @@ body {
   padding: 10px;
 }
 
-form {
-  width: 52%;
-}
-
-form h2 {
-  font-weight: bold;
-}
-
-.formInput {
+.contenedorForm form .formInput {
   font-family: apercu;
   font-size: 15px;
   font-weight: bold;
@@ -310,27 +276,27 @@ form h2 {
   padding: 20px;
 }
 
-.formInput::-webkit-input-placeholder {
+.contenedorForm form .formInput::-webkit-input-placeholder {
   color: black;
   font-weight: bold;
 }
 
-.formInput:-ms-input-placeholder {
+.contenedorForm form .formInput:-ms-input-placeholder {
   color: black;
   font-weight: bold;
 }
 
-.formInput::-ms-input-placeholder {
+.contenedorForm form .formInput::-ms-input-placeholder {
   color: black;
   font-weight: bold;
 }
 
-.formInput::placeholder {
+.contenedorForm form .formInput::placeholder {
   color: black;
   font-weight: bold;
 }
 
-.boton {
+.contenedorForm form .boton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -340,7 +306,7 @@ form h2 {
   padding: 20px;
 }
 
-.inputBoton {
+.contenedorForm form .boton .inputBoton {
   padding: 10px 50px 10px 50px;
   border: 1px solid black;
   border-radius: 5px;
@@ -353,7 +319,7 @@ form h2 {
   transition: all ease 0.8s;
 }
 
-.inputBoton:hover {
+.contenedorForm form .boton .inputBoton:hover {
   background-color: #000;
   color: #fff;
 }
@@ -374,7 +340,7 @@ form h2 {
   row-gap: 15px;
 }
 
-.contenedorDatos {
+.contenedorContact .contenedorDatos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,7 +349,7 @@ form h2 {
           justify-content: center;
 }
 
-.contenedorDatos1 {
+.contenedorContact .contenedorDatos1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -401,7 +367,7 @@ form h2 {
           align-items: center;
 }
 
-.redes {
+.contenedorContact .contenedorDatos1 .redes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -416,12 +382,12 @@ form h2 {
   padding-top: 25px;
 }
 
-.icon {
+.contenedorContact .contenedorDatos1 .redes .icon {
   -webkit-transform: scale(1.6);
           transform: scale(1.6);
 }
 
-.icon:hover {
+.contenedorContact .contenedorDatos1 .redes .icon:hover {
   cursor: pointer;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
