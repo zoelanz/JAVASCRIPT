@@ -143,6 +143,16 @@ body {
           align-items: center;
 }
 
+.contenedorPaintings .porAño {
+  cursor: pointer;
+}
+
+.contenedorPaintings .porAño:hover .contenedor {
+  opacity: 0.8;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
 .contenedorPaintings .contenedorPaintings1 {
   background-image: url(../imagenes/theshaman2021.jpg);
   background-position: center;
@@ -396,49 +406,28 @@ body {
 }
 
 /* === === === === === === === === === === SHOP === === === === === === === === === === */
-.styleToastify {
-  font-family: apercu;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  border-radius: 15px;
-}
-
 .containerPrincipal {
   margin: 0;
 }
 
-.card {
+.containerPrincipal .card {
   padding: 0;
   margin: 10px;
 }
 
-.shopPinturas {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 20px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.card-title {
+.containerPrincipal .card .card-title {
   font-size: 14px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
 }
 
-.card-text {
+.containerPrincipal .card .card-text {
   font-size: 14px;
   font-family: apercu;
   font-weight: bold;
 }
 
-.tamaño {
+.containerPrincipal .card .tamaño {
   height: 320px;
   width: 100%;
   -o-object-fit: cover;
@@ -457,23 +446,14 @@ body {
   color: grey;
 }
 
-.porAño {
-  cursor: pointer;
-}
-
-.porAño:hover .contenedor {
-  opacity: 0.8;
-  -webkit-transition: all ease 0.25s;
-  transition: all ease 0.25s;
+.styleToastify {
+  font-family: apercu;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  border-radius: 15px;
 }
 
 /* === === === === === === === === === === CART === === === === === === === === === === */
-.boton {
-  font-size: 13px;
-  padding: 10px 15px 10px 15px;
-  font-weight: bold;
-}
-
 .cart {
   background-color: black;
   color: white;
@@ -493,9 +473,10 @@ body {
           align-items: center;
 }
 
-.tamañoImgCart {
-  height: auto;
-  width: 150px;
+.cart .boton {
+  font-size: 13px;
+  padding: 10px 15px 10px 15px;
+  font-weight: bold;
 }
 
 .whole {
@@ -504,6 +485,11 @@ body {
 
 .hide {
   display: none;
+}
+
+.tamañoImgCart {
+  height: auto;
+  width: 150px;
 }
 
 .swal2-popup {
@@ -527,22 +513,6 @@ body {
 }
 
 /* === === === === === === === === === === POR AÑO=== === === === === === === === === === */
-.contenedorPrincipal {
-  width: 100%;
-}
-
-.contenedorImagen {
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-.tamañoImgPorAño {
-  height: auto;
-  width: 370px;
-}
-
 .contenedorGaleria {
   display: -ms-grid;
   display: grid;
@@ -552,6 +522,22 @@ body {
       grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   padding: 50px;
+}
+
+.contenedorPrincipal {
+  width: 100%;
+}
+
+.contenedorPrincipal .contenedorImagen {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.contenedorPrincipal .contenedorImagen .tamañoImgPorAño {
+  height: auto;
+  width: 370px;
 }
 
 .imagenGaleria {
@@ -582,7 +568,7 @@ footer {
   padding: 0;
 }
 
-.copyright {
+footer .copyright {
   font-family: apercu;
   font-weight: bold;
   letter-spacing: 1px;
@@ -590,7 +576,7 @@ footer {
   color: #000;
 }
 
-.inicioPagina {
+footer .inicioPagina {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -605,7 +591,7 @@ footer {
   font-size: 10px;
 }
 
-.arrow {
+footer .inicioPagina .arrow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
