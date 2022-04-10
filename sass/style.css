@@ -392,6 +392,10 @@ body {
   padding-top: 25px;
 }
 
+.contenedorContact .contenedorDatos1 .redes .link {
+  color: black;
+}
+
 .contenedorContact .contenedorDatos1 .redes .icon {
   -webkit-transform: scale(1.6);
           transform: scale(1.6);

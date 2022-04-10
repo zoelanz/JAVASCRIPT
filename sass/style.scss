@@ -302,6 +302,9 @@ body {
             justify-content: space-evenly;
             width: 100%;
             padding-top: 25px;
+            .link{
+                color: black;
+            }
             .icon {
                 transform: scale(1.6);
                 &:hover {
